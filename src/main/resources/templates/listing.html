@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="webjars/jquery/2.2.3/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <!-- <th>ID</th> -->
+                <th>İs Unvanı</th>
+                <th>Eleman Sayısı</th>
+                <!-- <th>İs Tanımı</th> -->
+                <th>Son Basvuru Tarihi</th>
+                <th>İlan Detayı</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="joblisting : ${datas}">
+                <td></td>
+                <!-- <td th:text="${joblisting.id}"></td> -->
+                <td th:text="${joblisting.isUnvani}"></td>
+                <td th:text="${joblisting.elemanSayisi}"></td>
+                <!-- <td th:text="${joblisting.isTanimi}"></td> -->
+                <td th:text="${joblisting.basvuruTarihi}"></td>
+                <td><a th:href="@{detail/(id=${joblisting.id})}" class="btn btn-warning eBtn">İs Tanımı</a></td>
+                <td><a th:href="@{basvurs/(id=${joblisting.id})}" class="btn btn-success eBtn">Başvur</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+</html>

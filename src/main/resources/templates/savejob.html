@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div class="container my-5">
+    <h3> Add Job Listing</h3>
+    <div class="card">
+        <div class="card-body">
+
+            <div class="col-md-12">
+                <form action="#" th:action="@{/saves}" th:object="${jobListing}"
+                      method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label class="col-form-label">Yayınlanma Tarihi</label>
+                            <input type="text" th:value="${yayinlanma}" class="form-control" disabled/>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="x" class="col-form-label">İş Unvanı</label>
+                            <input type="text" th:field="*{isUnvani}" class="form-control" id="x"
+                                   placeholder="İş Unvanı"/>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="v" class="col-form-label">İş Tanımı</label>
+                            <textarea id="v" th:field="*{isTanimi}" class="form-control"
+                                      placeholder="İş Tanımı"></textarea>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="email" class="col-form-label">Eleman Sayısı</label>
+                            <input type="text" th:field="*{elemanSayisi}" class="form-control" id="email"
+                                   placeholder="Eleman Sayısı"/>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="rr" class="col-form-label">Son Başvuru Tarihi</label>
+                            <input type="datetime-local" class="form-control" id="rr" th:field="*{basvuruTarihi}"
+                                   placeholder="dd-MM-yyyy"/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <input type="radio" th:field="*{state}" th:value="true" checked="true">
+                            <label th:for="${#ids.prev('state')}">Active</label>
+
+                            <input type="radio" th:field="*{state}" th:value="false">
+                            <label th:for="${#ids.prev('state')}">Passive</label>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+                        <input type="hidden" id="id" th:field="*{id}">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
