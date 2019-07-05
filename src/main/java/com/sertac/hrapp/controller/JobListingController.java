@@ -1,14 +1,19 @@
 package com.sertac.hrapp.controller;
 
 import com.sertac.hrapp.entity.JobListing;
+import com.sertac.hrapp.entity.User;
 import com.sertac.hrapp.service.JobListingService;
+import com.sertac.hrapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class JobListingController {
@@ -20,10 +25,33 @@ public class JobListingController {
         this.jobListingService = jobListingService;
     }
 
-    /*@GetMapping("/login")
-     public String login() {
-         return "login";
-     }ÇALIŞMADI TEKRAR BAKARIZ*/
+    @Autowired
+    private UserService userService;
+
+    //---------- Login
+    // Login form with error
+    @RequestMapping("/login-error.html")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "login.html";
+    }
+
+    @GetMapping("/login")
+    public String login(User user) {
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String logins(User user) {
+        user.setId(1L);
+        boolean x = userService.login(user);
+        if (x) {
+            return "redirect:/";
+        } else {
+            return "login.html";
+        }
+    }
+    //----------
 
     @GetMapping("/")
     public String showPage(Model model, @RequestParam(defaultValue = "0") int page) {
@@ -48,9 +76,16 @@ public class JobListingController {
     //----------
 
     @GetMapping("/listing")
-    public String listings(Model model) {
+    public ModelAndView listings(Model model) {
+        ModelAndView mv = new ModelAndView("Listing.html");
+
+        List<JobListing> jobListings = new ArrayList<>();
+        jobListings = jobListingService.findAllState(true);
+
         model.addAttribute("datas", jobListingService.findAllState(true));
-        return "listing";
+        mv.addObject("datas", jobListings);
+
+        return mv;
     }
 
     @GetMapping("/delete")
@@ -66,17 +101,15 @@ public class JobListingController {
     }
 
     @GetMapping("/detail")
-    public String details(Long id, Model model) {
+    public ModelAndView details(Long id, Model model) {
         JobListing jobListing = jobListingService.findById(id);
-        model.addAttribute("id", jobListing.getId());
-        model.addAttribute("yayinlanma", jobListing.getCreateDate());
-        model.addAttribute("isUnvani", jobListing.getIsUnvani());
-        model.addAttribute("isTanimi", jobListing.getIsTanimi());
-        model.addAttribute("elemanSayisi", jobListing.getElemanSayisi());
-        model.addAttribute("basvuruTarihi", jobListing.getBasvuruTarihi());
+
         boolean degisken = true;
         model.addAttribute("giris", degisken);
-        return "detail";
+
+        ModelAndView mv = new ModelAndView("detail.html");
+        mv.addObject("datas", jobListing);
+        return mv;
     }
 
     @GetMapping("/findById")
