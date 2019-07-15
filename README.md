@@ -11,9 +11,16 @@ Our HR Manager wants to create a listing platform. The platform requirements are
 * There should be delete job listing link for each job listing on listing page. As an HR Manager, I should delete a job listing by clicking the link. Deleted
 * job listings won't be seen by anyone.
 
-![alt text](http://url/to/img.png)
+![alt text](https://a.imge.to/2019/07/15/FKBrZ.png)
 
-
+https://imge.to/i/FKBrZ
+https://imge.to/i/FK2Jt
+https://imge.to/i/FKp4G
+https://imge.to/i/FKaWw
+https://imge.to/i/FKuLy
+https://imge.to/i/FKrQx
+https://imge.to/i/FKDh1
+https://imge.to/i/FKny0
 Step 3: Job Application Page
 There should be a page for other people to apply to the jobs which will be created by our HR manager. Requirements are,
 * Create a listing page for the job listings that HR Manager created.
