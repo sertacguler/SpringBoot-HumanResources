@@ -7,9 +7,8 @@ import com.sertac.hrapp.service.JobListingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,28 +24,22 @@ public class ApplicantController {
         this.applicantService = applicantService;
     }
 
-   /* @Autowired
-    private JobListingServiceImpl jobListingService;*/
-
-    private Long job_id;
+    @Autowired
+    private JobListingServiceImpl jobListingService;
 
     //---------- Save
-    @GetMapping("/detail/basvurs")
-    public String basvurJobListing(Applicant applicant, @RequestParam Long id) {
-        job_id = id;
-        System.err.println("job_id" + id);
+    @GetMapping("/detay/basvurs")
+    public String basvurJobListing(Applicant applicant, @RequestParam Long id, Model model) {
+        model.addAttribute("job_id", id);
         return "basvur";
     }
 
-    @PostMapping("/ff")
-    public String save(Applicant applicant) {
-        /*JobListing jobListing = jobListingService.findById(job_id);
-        System.err.println("joblist : " + jobListing);
-        List<JobListing> jobListingList = new ArrayList<>();
-        jobListingList.add(jobListing);
-        System.err.println("joblist : " + jobListingList);
-        applicant.setJobListingList(jobListingList);*/
+    @PostMapping("/ff/{j_id}")
+    public String save(Applicant applicant, @PathVariable("j_id") Long j_id) {
 
+        JobListing jobListing = jobListingService.findById(j_id);
+
+        applicant.setJobListing(jobListing);
         applicant.setCreateDate(new Date());
         applicantService.save(applicant);
         return "basvuruson";
