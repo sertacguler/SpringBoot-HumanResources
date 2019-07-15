@@ -12,15 +12,9 @@ Our HR Manager wants to create a listing platform. The platform requirements are
 * job listings won't be seen by anyone.
 
 ![alt text](https://a.imge.to/2019/07/15/FKBrZ.png)
+![alt text](https://a.imge.to/2019/07/15/FK2Jt.png)
+![alt text](https://a.imge.to/2019/07/15/FKp4G.png)
 
-https://imge.to/i/FKBrZ
-https://imge.to/i/FK2Jt
-https://imge.to/i/FKp4G
-https://imge.to/i/FKaWw
-https://imge.to/i/FKuLy
-https://imge.to/i/FKrQx
-https://imge.to/i/FKDh1
-https://imge.to/i/FKny0
 Step 3: Job Application Page
 There should be a page for other people to apply to the jobs which will be created by our HR manager. Requirements are,
 * Create a listing page for the job listings that HR Manager created.
@@ -29,7 +23,8 @@ There should be a page for other people to apply to the jobs which will be creat
 * Job application form should get the information "Name", "Email", "Phone", "Address", "Thoughts on Job", "Resume" (as a file) from the applicant and
 * save these information to database.
 
-![alt text](http://url/to/img.png)
+![alt text](https://a.imge.to/2019/07/15/FKaWw.png)
+![alt text](https://a.imge.to/2019/07/15/FKuLy.png)
 
 Step 4: Application Listing Module
 We've got some applicants and hr manager want to see the list of all job applications.
@@ -37,4 +32,6 @@ We've got some applicants and hr manager want to see the list of all job applica
 * All job applications should have a detail page. As an HR Manager, I should see the detail page by clicking show detail link.
 * Only HR Manager should see the listing page. He/she should login to the system in order to see this page.
 
-![alt text](http://url/to/img.png)
+![alt text](ttps://a.imge.to/2019/07/15/FKrQx.png)
+![alt text](https://a.imge.to/2019/07/15/FKDh1.png)
+![alt text](https://a.imge.to/2019/07/15/FKny0.png)
