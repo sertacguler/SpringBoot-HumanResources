@@ -11,6 +11,8 @@ Our HR Manager wants to create a listing platform. The platform requirements are
 * There should be delete job listing link for each job listing on listing page. As an HR Manager, I should delete a job listing by clicking the link. Deleted
 * job listings won't be seen by anyone.
 
+![alt text](http://url/to/img.png)
+
 
 Step 3: Job Application Page
 There should be a page for other people to apply to the jobs which will be created by our HR manager. Requirements are,
@@ -20,8 +22,12 @@ There should be a page for other people to apply to the jobs which will be creat
 * Job application form should get the information "Name", "Email", "Phone", "Address", "Thoughts on Job", "Resume" (as a file) from the applicant and
 * save these information to database.
 
+![alt text](http://url/to/img.png)
+
 Step 4: Application Listing Module
 We've got some applicants and hr manager want to see the list of all job applications.
 * Create a job applications listing page. As an HR Manager, I should see all applications.
 * All job applications should have a detail page. As an HR Manager, I should see the detail page by clicking show detail link.
 * Only HR Manager should see the listing page. He/she should login to the system in order to see this page.
+
+![alt text](http://url/to/img.png)
